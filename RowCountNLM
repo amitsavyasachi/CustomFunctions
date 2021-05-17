@@ -16,8 +16,8 @@ public class RowCountNLM extends TestsigmaCustomFunctions{
     @CustomTestStep
     
     public TestStepResult lastRow()throws TestEngineException {
-         
-    	List<WebElement> rows = driver.findElements(By.xpath("//*[@id="gview_vehicleList"]/div[1]"));
+    
+        List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"gview_vehicleList\"]/div[1]")); 
     	int no_of_rows = rows.size()-1;
     	
     	String noofRows = Integer.toString(no_of_rows);
