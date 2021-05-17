@@ -1,0 +1,31 @@
+import com.testsigma.customfunc.common.TestsigmaCustomFunctions;
+import com.testsigma.customfunc.common.CustomTestStep;
+import com.testsigma.customfunc.result.ResultConstants;
+import com.testsigma.customfunc.result.TestStepResult;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.interactions.Actions;
+import com.testsigma.testengine.exceptions.TestEngineException;
+
+
+public class RowCountRohini extends TestsigmaCustomFunctions{
+   
+    @CustomTestStep
+    
+    public TestStepResult lastRow()throws TestEngineException {
+         
+    	List<WebElement> rows = driver.findElements(By.xpath("//table[@name='tblPackagesDetail']//tr"));
+    	int no_of_rows = rows.size()-1;
+    	
+    	String noofRows = Integer.toString(no_of_rows);
+      	setRuntimeData("nextRow",noofRows);
+		
+        TestStepResult result= new TestStepResult();
+        result.setStatus(ResultConstants.SUCCESS);
+        result.setMessage("Referral Link: "+noofRows);
+        return result;
+    }
+}
